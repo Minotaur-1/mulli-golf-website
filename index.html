@@ -47,6 +47,21 @@
             border-radius: 12px;
         }
         
+        .logo img:not([src]),
+        .logo img[src=""] {
+            display: none;
+        }
+        
+        .logo-text:before {
+            content: "🏌️ ";
+            margin-right: 1rem;
+        }
+        
+        .logo img:not([style*="display: none"]) + .logo-text:before {
+            content: "";
+            margin-right: 0;
+        }
+        
         .tagline {
             font-size: 1.2rem;
             opacity: 0.9;
@@ -175,8 +190,8 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="logo.png" alt="Mulli Golf Logo">
-                Mulli Golf
+                <img src="./logo.png" alt="Mulli Golf Logo" onerror="this.style.display='none'">
+                <span class="logo-text">Mulli Golf</span>
             </div>
             <div class="tagline">Discover and Rate Golf Courses</div>
         </div>
